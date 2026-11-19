@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './cart.css'
 import { Button, Container } from 'react-bootstrap'
-import { productContext } from '../contextAPI/Context'
+import { productContext } from '../Context'
 import axios from 'axios'
 
 const Cart = () => {
