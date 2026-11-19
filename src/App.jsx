@@ -5,7 +5,7 @@ import Home from './component/home/Home'
 import Fav from './component/fav/Fav'
 import Navbar from './component/navbar/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cart from './component/cart/Cart'
+import Cart from './component/contextAPI/cart/Cart'
 import Signup from './component/signup/Signup'
 import Login from './component/login/Login'
 import NavbarLog from './component/navbar/NavbarLog'
