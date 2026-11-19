@@ -20,29 +20,15 @@ const Login = () => {
     }
   
     const submitHandler = () => {
-      // console.log(name, mail, password)
-      axios.post(url, { email, password })
+    axios.post(url, { email, password })
       .then(res => {
-          if (res.status === 200 || res.status === 201) {
-            
-              localStorage.setItem('token', res.data.token);
-              console.log(res.data); 
-              setToken(res.data.token)
-              navigate('/home')
-          } else {
-              console.log('Request failed with status:', res.status);
-          }
+          localStorage.setItem('token', res.data.token);
+          console.log(res.data);
+          setToken(res.data.token);
+          navigate('/home');
       })
-  }
-  
-  
-    return (
-      <div className='signup'>
-        <input type="text" placeholder='email' onChange={(e) => { changeMailHandler(e) }}/>
-        <input type="password" placeholder='password'  onChange={(e) => { changePasswordHandler(e) }} />
-        <button onClick={() => { submitHandler() }}>Login</button>
-      </div>
-    )
-  }
-
-export default Login
+      .catch(error => {
+          alert(error.response?.data?.error || error.response?.data?.message || error.message);
+          console.log(error);
+      });
+}
